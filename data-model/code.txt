@@ -1,0 +1,34 @@
+//// -- LEVEL 1
+//// -- Tables and References
+
+Table movie {
+  movieid int [pk]
+  budget int
+  popularity decimal
+  revenue decimal
+  release_date datetime
+  createddate datetime
+  modifieddate datetime
+}
+
+Table movieproductioncompany {
+  movieid int [ref: < movie.movieid]
+  productioncompanyid int [ref: < productioncompany.productioncompanyid]
+}
+
+Table productioncompany {
+  productioncompanyid int [pk]
+  name varchar
+  createddate datetime
+  modifieddate datetime
+}
+
+Table moviegenre {
+  id int [pk, increment]
+  movieid int [ref: < movie.movieid]
+  genrename varchar
+  createddate datetime
+  modifieddate datetime
+}
+
+
