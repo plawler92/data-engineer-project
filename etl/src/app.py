@@ -37,3 +37,4 @@ def run(config):
         logger.info(f"Load complete after {end - start_write:,.3f} seconds")
     except Exception as e:
         logger.error(str(e))
+        #raise e

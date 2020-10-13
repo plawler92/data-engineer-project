@@ -1,4 +1,7 @@
 import ast
+import logging
+
+logger = logging.getLogger(__name__)
 
 class MovieGenreParser(object):
     def __init__(self, movie_genre_target):

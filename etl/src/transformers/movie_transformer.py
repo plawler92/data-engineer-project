@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 class MovieTransformer(object):
     def __init__(self, source, parsers):
         self.source = source
@@ -7,8 +11,11 @@ class MovieTransformer(object):
     # applied to this transformer
     def transform(self):
         for row in self.source.read():
-            for parser in self.parsers:
-                parser.parse(row)
+            try:
+                for parser in self.parsers:
+                    parser.parse(row)
+            except Exception as e:
+                logger.error(f"Error parsing row `{row}` with {str(e)}\n")
 
     def write(self):
         for parser in self.parsers:

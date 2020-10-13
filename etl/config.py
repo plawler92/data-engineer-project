@@ -3,7 +3,7 @@ import logging
 
 class Config(object):
     sources = {
-        "movies": "../data/small_clean_movies.csv"
+        "movies": "../data/movies_metadata.csv"
     }
     targets = {
         "movies": "output/movie.json",
