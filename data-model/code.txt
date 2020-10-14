@@ -14,6 +14,7 @@ Table movie {
 Table movieproductioncompany {
   movieid int [ref: < movie.movieid]
   productioncompanyid int [ref: < productioncompany.productioncompanyid]
+  createddate datetime
 }
 
 Table productioncompany {
@@ -24,9 +25,14 @@ Table productioncompany {
 }
 
 Table moviegenre {
-  id int [pk, increment]
   movieid int [ref: < movie.movieid]
-  genrename varchar
+  genreid int [ref: < genre.genreid]
+  createddate datetime
+}
+
+Table genre {
+  genreid int [pk]
+  genre varchar
   createddate datetime
   modifieddate datetime
 }
