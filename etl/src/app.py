@@ -13,12 +13,13 @@ def run(config):
     movie_source = LocalCSVSource(config.sources["movies"])
 
     movie_target = LocalJSONTarget(config.targets["movies"])
-    movie_genre_target = LocalJSONTarget(config.targets["movie_genres"])
+    genre_target = LocalJSONTarget(config.targets["genres"])
+    movie_genre_target = LocalJSONTarget(config.targets["movie_genre_join"])
     company_target = LocalJSONTarget(config.targets["production_companies"])
     movie_company_target = LocalJSONTarget(config.targets["movie_company_join"])
 
     movie_parser = MovieParser(movie_target)
-    movie_genre_parser = MovieGenreParser(movie_genre_target)
+    movie_genre_parser = MovieGenreParser(genre_target, movie_genre_target)
     company_parser = ProductionCompanyParser(company_target, movie_company_target)
 
     movie_transformer = MovieTransformer(movie_source, [movie_parser, movie_genre_parser, company_parser])

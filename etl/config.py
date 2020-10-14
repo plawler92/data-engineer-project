@@ -7,9 +7,10 @@ class Config(object):
     }
     targets = {
         "movies": "output/movie.json",
-        "movie_genres": "output/movie_genres.json",
+        "genres": "output/genres.json",
+        "movie_genre_join": "output/movie_genre_join.json",
         "production_companies": "output/production_companies.json",
-        "movie_company_join": "output/movie_company_join.json"
+        "movie_company_join": "output/movie_company_join.json",
     }
     logging = {
         "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
