@@ -20,13 +20,6 @@ class MovieGenreParser(object):
                 "genreid": genre_id
             })
             self.genres.add(Genre(genre_id, genre["name"]))
-        # self.records.extend([
-        #     {
-        #         "movieid": int(row["id"]),
-        #         "genre": genre["name"]
-        #     }
-        #     for genre in ast.literal_eval(row["genres"])
-        # ])
 
     def write(self):
         self.genre_target.write([genre.to_dict() for genre in self.genres])
